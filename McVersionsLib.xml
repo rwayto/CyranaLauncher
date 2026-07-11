@@ -1,0 +1,523 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>McVersionsLib</name>
+    </assembly>
+    <members>
+        <member name="T:McVersionsLib.Fabric.McFabricDataCollector">
+            <summary>
+            Fabric data collector class
+            </summary>
+        </member>
+        <member name="F:McVersionsLib.Fabric.McFabricDataCollector.gameVersionsUrl">
+            <summary>
+            URL to Fabric's supported game versions JSON
+            </summary>
+        </member>
+        <member name="F:McVersionsLib.Fabric.McFabricDataCollector.loaderVersionsUrl">
+            <summary>
+            URL to Fabric's loader versions JSON
+            </summary>
+        </member>
+        <member name="M:McVersionsLib.Fabric.McFabricDataCollector.RetrieveFabricGameVersionsData">
+            <summary>
+            Retrieve Fabric game versions data from the official project's website
+            </summary>
+            <returns>List of Fabric's supported game versions data</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Fabric game versions data</exception>
+        </member>
+        <member name="M:McVersionsLib.Fabric.McFabricDataCollector.RetrieveFabricLoaderVersionsData">
+            <summary>
+            Retrieve Fabric loader versions data from the official project's website
+            </summary>
+            <returns>List of Fabric's loader versions data</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Fabric loader versions data</exception>
+        </member>
+        <member name="M:McVersionsLib.Fabric.McFabricDataCollector.RetrieveFabricVersionsDetailsData(System.String)">
+            <summary>
+            Retrieve Fabric versions details about one Minecraft version
+            </summary>
+            <param name="mcVersion">Targeted Minecraft version</param>
+            <returns>List of Fabric's loader </returns>
+            <exception cref="T:System.Net.WebException"></exception>
+        </member>
+        <member name="P:McVersionsLib.Fabric.McFabricGameVersionJsonEntry.Version">
+            <summary>
+            Game version
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Fabric.McFabricGameVersionJsonEntry.Stable">
+            <summary>
+            Is game version stable ?
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Fabric.McFabricLoaderVersionJsonEntry.Separator">
+            <summary>
+            Version separator
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Fabric.McFabricLoaderVersionJsonEntry.Build">
+            <summary>
+            Build number
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Fabric.McFabricLoaderVersionJsonEntry.Maven">
+            <summary>
+            Maven reference
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Fabric.McFabricLoaderVersionJsonEntry.Version">
+            <summary>
+            Loader version
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Fabric.McFabricLoaderVersionJsonEntry.Stable">
+            <summary>
+            Is loader version stable ?
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Fabric.McFabricMappingsVersionJsonEntry.GameVersion">
+            <summary>
+            Mapping's game version
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Fabric.McFabricMappingsVersionJsonEntry.Separator">
+            <summary>
+            Version separator
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Fabric.McFabricMappingsVersionJsonEntry.Build">
+            <summary>
+            Build number
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Fabric.McFabricMappingsVersionJsonEntry.Maven">
+            <summary>
+            Maven reference
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Fabric.McFabricMappingsVersionJsonEntry.Version">
+            <summary>
+            Mappings version
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Fabric.McFabricMappingsVersionJsonEntry.Stable">
+            <summary>
+            Is mappings version stable ?
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Fabric.McFabricVersionDetailJsonEntry.LoaderData">
+            <summary>
+            Loader informations
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Fabric.McFabricVersionDetailJsonEntry.MappingsData">
+            <summary>
+            Mappings informations
+            </summary>
+        </member>
+        <member name="T:McVersionsLib.Fabric.McFabricVersions">
+            <summary>
+            Fabric versions functions
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Fabric.McFabricVersions.FabricGameVersionsData">
+            <summary>
+            Fabric game versions data
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Fabric.McFabricVersions.FabricLoaderVersionsData">
+            <summary>
+            Fabric loader versions data
+            </summary>
+        </member>
+        <member name="M:McVersionsLib.Fabric.McFabricVersions.GetAllSupportedMinecraftVersions(System.Boolean)">
+            <summary>
+            Return all Minecraft versions supported by Fabric
+            </summary>
+            <param name="forceRetrievingData">Force retrieving data from Fabric official website</param>
+            <returns>List of all Minecraft versions supported by Fabric</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Fabric versions data</exception>
+        </member>
+        <member name="M:McVersionsLib.Fabric.McFabricVersions.GetAllSupportedStableMinecraftVersions(System.Boolean)">
+            <summary>
+            Return all stable Minecraft versions supported by Fabric
+            </summary>
+            <param name="forceRetrievingData">Force retrieving data from Fabric official website</param>
+            <returns>List of all stable Minecraft versions supported by Fabric</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Fabric versions data</exception>
+        </member>
+        <member name="M:McVersionsLib.Fabric.McFabricVersions.GetAllSupportedUnstableMinecraftVersions(System.Boolean)">
+            <summary>
+            Return all unstable Minecraft versions supported by Fabric
+            </summary>
+            <param name="forceRetrievingData">Force retrieving data from Fabric official website</param>
+            <returns>List of all unstable Minecraft versions supported by Fabric</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Fabric versions data</exception>
+        </member>
+        <member name="M:McVersionsLib.Fabric.McFabricVersions.GetAllLoaderVersions">
+            <summary>
+            Return all Fabric's loader versions
+            </summary>
+            <returns>List of all Fabric's loader version</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Fabric versions data</exception>
+        </member>
+        <member name="M:McVersionsLib.Fabric.McFabricVersions.GetAllLoaderVersions(System.String)">
+            <summary>
+            Return all Fabric's loader versions for a specific Minecraft version
+            </summary>
+            <param name="targetedMcVersion">Targeted Minecraft version</param>
+            <returns>List of all Fabric's loader version for the targetted minecraft version</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Fabric versions data</exception>
+            <exception cref="T:McVersionsLib.Core.VersionNotFoundException">No available Fabric versions for the targeted Minecraft</exception>
+        </member>
+        <member name="M:McVersionsLib.Fabric.McFabricVersions.GetLoaderAndMappingsDetails(System.String,System.String)">
+            <summary>
+            Return loader and mappings details for a specific Minecraft and loader version
+            </summary>
+            <param name="targetedMcVersion">Targeted Minecraft version</param>
+            <param name="targetedLoaderVersion">Targeted loader version</param>
+            <returns></returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Fabric versions data</exception>
+            <exception cref="T:McVersionsLib.Core.VersionNotFoundException">No available Fabric versions for the targeted Minecraft</exception>
+            <exception cref="T:McVersionsLib.Core.VersionNotFoundException">The targeted loader version for the targeted Minecraft was not found</exception>
+        </member>
+        <member name="T:McVersionsLib.Forge.McForgeDataCollector">
+            <summary>
+            Minecraft Forge data collector class
+            </summary>
+        </member>
+        <member name="F:McVersionsLib.Forge.McForgeDataCollector.promotionsUrl">
+            <summary>
+            URL to Forge's promoted versions JSON
+            </summary>
+        </member>
+        <member name="F:McVersionsLib.Forge.McForgeDataCollector.versionsUrl">
+            <summary>
+            URL to all Forge's versions JSON
+            </summary>
+        </member>
+        <member name="M:McVersionsLib.Forge.McForgeDataCollector.RetrieveAllAvailableMinecraftForgeVersionsData">
+            <summary>
+            Retrieve all available Minecraft Forge versions from the official project's website
+            </summary>
+            <returns>Deserialized Forge versions json with minecraft version as key (<c>string</c>), and list of all minecraft forge version for this minecraft version (List of <c>string</c>)</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Forge versions data</exception>
+        </member>
+        <member name="M:McVersionsLib.Forge.McForgeDataCollector.RetrievePromotedMinecraftForgeVersionsData">
+            <summary>
+            Retrieve promoted Minecraft Forge versions from the official project's website
+            </summary>
+            <returns>Deserialized Forge promoted versions json</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Forge versions data</exception>
+        </member>
+        <member name="P:McVersionsLib.Forge.McForgePromotionsJson.Homepage">
+            <summary>
+            Minecraft Forge project's homepage
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Forge.McForgePromotionsJson.Promos">
+            <summary>
+            Dictionnary of promoted Minecraft Forge versions
+            </summary>
+            <remarks>
+            <c>Key</c> : Minecraft version with <c>-latest</c> or <c>-recommended</c> <br/>
+            <c>Value</c> : Corresponding Minecraft Forge version
+            </remarks>
+        </member>
+        <member name="T:McVersionsLib.Forge.McForgeUtils">
+            <summary>
+            Usefull functions for Minecraft Forge
+            </summary>
+        </member>
+        <member name="M:McVersionsLib.Forge.McForgeUtils.BuildMinecraftForgeMDKDownloadLink(System.String)">
+            <summary>
+            Build SDK download link for a Minecraft Forge version
+            </summary>
+            <param name="mcforgeVersion">Full Minecraft Forge version (eg: 1.19.2-43.1.47)</param>
+            <returns>MDK download link for the targetted Minecraft Forge version</returns>
+        </member>
+        <member name="M:McVersionsLib.Forge.McForgeUtils.BuildMinecraftForgeInstallerLink(System.String)">
+            <summary>
+            Build installer download link for a Minecraft Forge version
+            </summary>
+            <param name="mcforgeVersion">Full Minecraft Forge version (eg: 1.19.2-43.1.47)</param>
+            <returns>Installer download link for the targetted Minecraft Forge version</returns>
+        </member>
+        <member name="T:McVersionsLib.Forge.McForgeVersions">
+            <summary>
+            Minecraft Forge versions functions
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Forge.McForgeVersions.ForgePromotionsData">
+            <summary>
+            Minecraft Forge promoted versions data
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Forge.McForgeVersions.ForgeAvailableVersionsData">
+            <summary>
+            Minecraft Forge available version data
+            </summary>
+        </member>
+        <member name="M:McVersionsLib.Forge.McForgeVersions.GetAllSupportedMinecraftVersions(System.Boolean)">
+            <summary>
+            Return all Minecraft versions supported by Minecraft Forge
+            </summary>
+            <param name="forceRetrievingData">Force retrieving data from Forge official website</param>
+            <returns>List of all Minecraft versions supported by Minecraft Forge</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Forge versions data</exception>
+        </member>
+        <member name="M:McVersionsLib.Forge.McForgeVersions.GetAllMinecraftForgeVersions(System.String,System.Boolean)">
+            <summary>
+            Return all available Minecraft Forge versions for a specific Minecraft version
+            </summary>
+            <param name="targetedMcVersion">Targeted Minecraft version</param>
+            <param name="forceRetrievingData">Force retrieving data from Forge official website</param>
+            <returns>List of all available Minecraft Forge versions for the targetted Minecraft version</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Forge versions data</exception>
+            <exception cref="T:McVersionsLib.Core.VersionNotFoundException">No available Minecraft Forge version for the taregetted Minecraft version</exception>
+        </member>
+        <member name="M:McVersionsLib.Forge.McForgeVersions.GetRecommendedMinecraftForgeVersion(System.String,System.Boolean)">
+            <summary>
+            Return recommanded Minecraft Forge version for a specific Minecraft version
+            </summary>
+            <param name="targetedMcVersion">Targeted Minecraft version</param>
+            <param name="forceRetrievingData">Force retrieving data from Forge official website</param>
+            <returns>Recommended version of Minecraft Forge for the specific Minecraft version, or <c>string.Empty</c> if no recommended version is available</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Forge versions data</exception>
+        </member>
+        <member name="M:McVersionsLib.Forge.McForgeVersions.GetLatestMinecraftForgeVersion(System.String,System.Boolean)">
+            <summary>
+            Return latest Minecraft Forge version for a specific Minecraft version
+            </summary>
+            <param name="targetedMcVersion">Targeted Minecraft version</param>
+            <param name="forceRetrievingData">Force retrieving data from Forge official website</param>
+            <returns>Latest version of Minecraft Forge for the specific Minecraft version, or <c>string.Empty</c> if no latest version is available</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Forge versions data</exception>
+        </member>
+        <member name="T:McVersionsLib.Minecraft.McDataCollector">
+            <summary>
+            Minecraft data collector class
+            </summary>
+        </member>
+        <member name="F:McVersionsLib.Minecraft.McDataCollector.manifestUrl">
+            <summary>
+            URL to Minecraft versions manifest JSON
+            </summary>
+        </member>
+        <member name="M:McVersionsLib.Minecraft.McDataCollector.RetrieveAllAvailableMinecraftVersionsData">
+            <summary>
+            Retrieve all available Minecraft versions from Mojang Studios servers
+            </summary>
+            <returns>Deserialized Minecraft versions list</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Minecraft versions data</exception>
+        </member>
+        <member name="P:McVersionsLib.Minecraft.McVersionManifestJson.LatestVersionsIds">
+            <summary>
+            Latest release and snapshot version
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Minecraft.McVersionManifestJson.AllVersionsData">
+            <summary>
+            All Minecraft versions data
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Minecraft.McVersionManifestJsonLatestEntry.LatestRelease">
+            <summary>
+            Latest Minecraft release version
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Minecraft.McVersionManifestJsonLatestEntry.LatestSnapshot">
+            <summary>
+            Latest Minecraft snapshot version
+            </summary>
+        </member>
+        <member name="T:McVersionsLib.Minecraft.McVersions">
+            <summary>
+            Minecraft versions functions
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Minecraft.McVersions.MinecraftVersionsData">
+            <summary>
+            Minecraft versions data
+            </summary>
+        </member>
+        <member name="M:McVersionsLib.Minecraft.McVersions.GetAllAvailableMinecraftVersions(System.Boolean)">
+            <summary>
+            Return all available Minecraft versions
+            </summary>
+            <param name="forceRetrievingData">Force retrieving data from Mojang Studios servers</param>
+            <returns>List of all available Minecraft versions (releases, snapshots, betas and alphas) ordered by release date (descending)</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Minecraft versions data</exception>
+        </member>
+        <member name="M:McVersionsLib.Minecraft.McVersions.GetAllAvailableMinecraftReleaseVersions(System.Boolean)">
+            <summary>
+            Return all available Minecraft release versions
+            </summary>
+            <param name="forceRetrievingData">Force retrieving data from Mojang Studios servers</param>
+            <returns>List of all available Minecraft release versions ordered by release date (descending)</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Minecraft versions data</exception>
+        </member>
+        <member name="M:McVersionsLib.Minecraft.McVersions.GetAllAvailableMinecraftSnapshotVersions(System.Boolean)">
+            <summary>
+            Return all available Minecraft snapshot versions
+            </summary>
+            <param name="forceRetrievingData">Force retrieving data from Mojang Studios servers</param>
+            <returns>List of all available Minecraft snapshot versions ordered by release date (descending)</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Minecraft versions data</exception>
+        </member>
+        <member name="P:McVersionsLib.Minecraft.McVersionsManifestJsonVersionEntry.Version">
+            <summary>
+            Game version
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Minecraft.McVersionsManifestJsonVersionEntry.VersionType">
+            <summary>
+            Version type
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Minecraft.McVersionsManifestJsonVersionEntry.ManifestLastUpdateDate">
+            <summary>
+            Last manifest file update
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Minecraft.McVersionsManifestJsonVersionEntry.ReleaseDate">
+            <summary>
+            Release date
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Minecraft.McVersionsManifestJsonVersionEntry.Sha1">
+            <summary>
+            SHA1 hash
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.Minecraft.McVersionsManifestJsonVersionEntry.ComplianceLevel">
+            <summary>
+            Compliance level<br/>
+            If 0, the launcher warns the user about this version not being recent enough to support the latest player safety features. Its value is 1 otherwise.
+            </summary>
+        </member>
+        <member name="T:McVersionsLib.Minecraft.McVersionType">
+            <summary>
+            Minecraft version type enumeration
+            </summary>
+        </member>
+        <member name="F:McVersionsLib.Minecraft.McVersionType.Snapshot">
+            <summary>
+            Snapshot
+            </summary>
+        </member>
+        <member name="F:McVersionsLib.Minecraft.McVersionType.Release">
+            <summary>
+            Release
+            </summary>
+        </member>
+        <member name="F:McVersionsLib.Minecraft.McVersionType.Beta">
+            <summary>
+            Old beta
+            </summary>
+        </member>
+        <member name="F:McVersionsLib.Minecraft.McVersionType.Alpha">
+            <summary>
+            Old alpha
+            </summary>
+        </member>
+        <member name="T:McVersionsLib.NeoForge.McNeoForgeDataCollector">
+            <summary>
+            NeoForge data collector class
+            </summary>
+        </member>
+        <member name="F:McVersionsLib.NeoForge.McNeoForgeDataCollector.neoForgeVersionsUrl">
+            <summary>
+            URL to all NeoForge's versions
+            </summary>
+        </member>
+        <member name="F:McVersionsLib.NeoForge.McNeoForgeDataCollector.neoForgeLatestVersionBaseUrl">
+            <summary>
+            Base URL to latest NeoForge's version
+            </summary>
+        </member>
+        <member name="M:McVersionsLib.NeoForge.McNeoForgeDataCollector.RetrieveNeoForgeVersionsData">
+            <summary>
+            Retrieve NeoForge versions data from the official project's website
+            </summary>
+            <returns>List of NeoForge's versions</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve NeoForge versions data</exception>
+        </member>
+        <member name="M:McVersionsLib.NeoForge.McNeoForgeDataCollector.RetrieveNeoForgeLatestVersionData(System.String)">
+            <summary>
+            Retrieve NeoForge latest version data from the official project's website for a specified NeoForge major version
+            </summary>
+            <param name="neoForgeVersion">Targeted major version of NeoForge</param>
+            <returns>Latest NeoForge version for the specified NeoForge major version</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve NeoForge versions data</exception>
+        </member>
+        <member name="T:McVersionsLib.NeoForge.McNeoForgeUtils">
+            <summary>
+            Usefull functions for NeoForge
+            </summary>
+        </member>
+        <member name="M:McVersionsLib.NeoForge.McNeoForgeUtils.GetNeoForgeVersionFromMinecraftVersion(System.String)">
+            <summary>
+            Get NeoForge forge major version for a specific Minecraft version
+            </summary>
+            <param name="mcVersion">Targeted Minecraft version</param>
+            <returns>NeoForge major version number</returns>
+        </member>
+        <member name="P:McVersionsLib.NeoForge.McNeoForgeVersionJsonEntry.IsSnapshot">
+            <summary>
+            Snapshot status
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.NeoForge.McNeoForgeVersionJsonEntry.Version">
+            <summary>
+            NeoForge version
+            </summary>
+        </member>
+        <member name="T:McVersionsLib.NeoForge.McNeoForgeVersions">
+            <summary>
+            NeoForge versions functions
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.NeoForge.McNeoForgeVersions.NeoForgeVersions">
+            <summary>
+            NeoForge versions list
+            </summary>
+        </member>
+        <member name="M:McVersionsLib.NeoForge.McNeoForgeVersions.GetAllNeoForgeVersions(System.Boolean)">
+            <summary>
+            Return all NeoForge versions
+            </summary>
+            <param name="forceRetrievingData">Force retrieving data from Forge official website</param>
+            <returns>List of all NeoForge versions</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve Forge versions data</exception>
+        </member>
+        <member name="M:McVersionsLib.NeoForge.McNeoForgeVersions.GetAllNeoForgeVersions(System.String,System.Boolean)">
+            <summary>
+            Return all NeoForge versions for a specific Minecraft version
+            </summary>
+            <param name="mcVersion">Targeted Minecraft version</param>
+            <param name="forceRetrievingData">Force retrieving data from NeoForge official website</param>
+            <returns>List of all NeoForge versions</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve NeoForge versions data</exception>
+        </member>
+        <member name="M:McVersionsLib.NeoForge.McNeoForgeVersions.GetLatestNeoForgeVersion(System.String)">
+            <summary>
+            Return the latest NeoForge version for a specific Minecraft version
+            </summary>
+            <param name="mcVersion">Targeted Minecraft version</param>
+            <returns>Latest NeoForge version for the targeted Minecraft version</returns>
+            <exception cref="T:System.Net.WebException">Cannot retrieve NeoForge versions data</exception>
+        </member>
+        <member name="P:McVersionsLib.NeoForge.McNeoForgeVersionsJson.IsSnapshot">
+            <summary>
+            Snapshot status
+            </summary>
+        </member>
+        <member name="P:McVersionsLib.NeoForge.McNeoForgeVersionsJson.Versions">
+            <summary>
+            List of NeoForge versions
+            </summary>
+        </member>
+    </members>
+</doc>
